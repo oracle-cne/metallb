@@ -1,0 +1,18 @@
+@Library('olcne-pipeline') _
+import com.oracle.olcne.pipeline.BranchPattern
+
+String metallb_version = "{{{ .major }}}.{{{ .minor }}}.{{{ .patch }}}";
+String image_tag = 'v' + metallb_version
+
+olcnePipeline(
+  branchPattern: new BranchPattern(master: 'oracle/release/' + metallb_version, feature: 'feature/.*'),
+  containers: [
+    ('container-registry.oracle.com/olcne/metallb-controller:' + image_tag)    : 'olcne/metallb-controller:' + image_tag,
+    ('container-registry.oracle.com/olcne/metallb-mirror-server:' + image_tag) : 'olcne/metallb-mirror-server:' + image_tag,
+    ('container-registry.oracle.com/olcne/metallb-speaker:' + image_tag)       : 'olcne/metallb-speaker:' + image_tag
+  ],
+  platforms: ['ol8'],
+  yumOL8Repos: ['ol8_appstream', 'ol8_developer'],
+  ol8ModulesToDisable: ['go-toolset:ol8'],
+  ol8ModulesToEnable: ['go-toolset:ol8addon']
+)
