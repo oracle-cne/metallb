@@ -44,7 +44,13 @@ export CGO_ENABLED="0"
 %global commit $(git describe --dirty --always)
 %global branch $(git rev-parse --abbrev-ref HEAD)
 %global ldflags "-X 'go.universe.tf/metallb/internal/version.gitCommit=%{commit}' -X 'go.universe.tf/metallb/internal/version.gitBranch=%{branch}'"
+
+{{{- if semverCompare "<0.13.6" $version }}}
 %global binaries "controller" "mirror-server" "speaker"
+{{{- else }}}
+%global binaries "controller" "speaker"
+{{{- end }}}
+
 for bin in %{binaries}
 do
     mkdir -p src/github.com/metallb/%{name}/build/%{arch}/${bin}
@@ -59,7 +65,7 @@ do
 done
 
 %files
-%license LICENSE DCO THIRD_PARTY_LICENSES.txt
+%license LICENSE DCO THIRD_PARTY_LICENSES.txt SECURITY.md
 /usr/local/share/olcne/metallb/%{name}
 
 %clean

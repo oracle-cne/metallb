@@ -37,7 +37,13 @@ yumdownloader --destdir=${PWD}/rpms %{rpm_name}
 
 %__rm .dockerignore
 %global dockerfile Dockerfile
+
+{{{- if semverCompare "<0.13.6" $version }}}
 %global binaries "controller" "mirror-server" "speaker"
+{{{- else }}}
+%global binaries "controller" "speaker"
+{{{- end }}}
+
 for bin in %{binaries}
 do
     %define docker_tag %{registry}/%{app_name}-${bin}:v%{version}
@@ -57,10 +63,13 @@ do
 done
 
 %files
-%license LICENSE THIRD_PARTY_LICENSES.txt
+%license LICENSE THIRD_PARTY_LICENSES.txt SECURITY.md
 /usr/local/share/olcne/%{app_name}-controller.tar
-/usr/local/share/olcne/%{app_name}-mirror-server.tar
 /usr/local/share/olcne/%{app_name}-speaker.tar
+{{{- if semverCompare "<0.13.6" $version }}}
+/usr/local/share/olcne/%{app_name}-mirror-server.tar
+{{{- end }}}
+
 
 %changelog
 * {{{.changelog_timestamp}}} - %{version}-1
