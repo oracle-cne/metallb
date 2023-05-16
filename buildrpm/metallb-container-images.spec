@@ -39,9 +39,9 @@ yumdownloader --destdir=${PWD}/rpms %{rpm_name}
 %global dockerfile Dockerfile
 
 {{{- if semverCompare "<0.13.6" $version }}}
-%global binaries "controller" "mirror-server" "speaker"
+%global binaries "controller" "mirror-server" "speaker" "configmaptocrs"
 {{{- else }}}
-%global binaries "controller" "speaker"
+%global binaries "controller" "speaker" "configmaptocrs"
 {{{- end }}}
 
 for bin in %{binaries}
@@ -69,8 +69,9 @@ done
 {{{- if semverCompare "<0.13.6" $version }}}
 /usr/local/share/olcne/%{app_name}-mirror-server.tar
 {{{- end }}}
+/usr/local/share/olcne/%{app_name}-configmaptocrs.tar
 
 
 %changelog
 * {{{.changelog_timestamp}}} - %{version}-1
-- Added Oracle Specific Build Files for grafana
+- Added configmaptocrs to binaries list

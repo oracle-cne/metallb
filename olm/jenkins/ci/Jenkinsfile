@@ -10,14 +10,16 @@ olcnePipeline(
   branchPattern: new BranchPattern(master: 'oracle/release/' + metallb_version, feature: 'feature/.*'),
 {{{- if semverCompare "<0.13.6" $version }}}
   containers: [
-    ('container-registry.oracle.com/olcne/metallb-controller:' + image_tag)    : 'olcne/metallb-controller:' + image_tag,
-    ('container-registry.oracle.com/olcne/metallb-mirror-server:' + image_tag) : 'olcne/metallb-mirror-server:' + image_tag,
-    ('container-registry.oracle.com/olcne/metallb-speaker:' + image_tag)       : 'olcne/metallb-speaker:' + image_tag
+    ('container-registry.oracle.com/olcne/metallb-controller:' + image_tag)     : 'olcne/metallb-controller:' + image_tag,
+    ('container-registry.oracle.com/olcne/metallb-mirror-server:' + image_tag)  : 'olcne/metallb-mirror-server:' + image_tag,
+    ('container-registry.oracle.com/olcne/metallb-speaker:' + image_tag)        : 'olcne/metallb-speaker:' + image_tag,
+    ('container-registry.oracle.com/olcne/metallb-configmaptocrs:' + image_tag) : 'olcne/metallb-configmaptocrs:' + image_tag
   ],
 {{{- else }}}
   containers: [
-    ('container-registry.oracle.com/olcne/metallb-controller:' + image_tag)    : 'olcne/metallb-controller:' + image_tag,
-    ('container-registry.oracle.com/olcne/metallb-speaker:' + image_tag)       : 'olcne/metallb-speaker:' + image_tag
+    ('container-registry.oracle.com/olcne/metallb-controller:' + image_tag)     : 'olcne/metallb-controller:' + image_tag,
+    ('container-registry.oracle.com/olcne/metallb-speaker:' + image_tag)        : 'olcne/metallb-speaker:' + image_tag,
+    ('container-registry.oracle.com/olcne/metallb-configmaptocrs:' + image_tag) : 'olcne/metallb-configmaptocrs:' + image_tag
   ],
 {{{- end }}}
   platforms: ['ol8'],

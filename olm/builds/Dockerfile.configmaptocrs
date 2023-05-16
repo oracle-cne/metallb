@@ -10,13 +10,13 @@ RUN dnf install -y /tmp/*.rpm &&\
 FROM ghcr.io/oracle/oraclelinux:8-slim
 
 COPY --from=0 /usr/share/licenses/metallb* /LICENSES
-COPY --from=0 /usr/local/share/olcne/metallb/metallb/speaker /usr/src/metallb/
+COPY --from=0 /usr/local/share/olcne/metallb/metallb/configmaptocrs /usr/src/metallb
 
 WORKDIR /usr/src/metallb/
 
 # When running as non root and building in an environment that `umask` masks out
 # '+x' for others, it won't be possible to execute. Make sure all can execute,
 # just in case
-RUN chmod a+x speaker
+RUN chmod a+x configmaptocrs
 
-ENTRYPOINT ["./speaker"]
+ENTRYPOINT ["./configmaptocrs"]
