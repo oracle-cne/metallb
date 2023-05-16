@@ -19,4 +19,4 @@ WORKDIR /usr/src/metallb/
 # just in case
 RUN chmod a+x controller
 
-ENTRYPOINT ["controller"]
+ENTRYPOINT ["./controller"]

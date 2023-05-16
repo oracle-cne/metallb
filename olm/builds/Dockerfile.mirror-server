@@ -14,4 +14,4 @@ COPY --from=0 /usr/local/share/olcne/metallb/metallb/mirror-server /usr/src/meta
 
 WORKDIR /usr/src/metallb/
 
-ENTRYPOINT ["mirror"]
+ENTRYPOINT ["./mirror-server"]

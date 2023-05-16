@@ -46,9 +46,9 @@ export CGO_ENABLED="0"
 %global ldflags "-X 'go.universe.tf/metallb/internal/version.gitCommit=%{commit}' -X 'go.universe.tf/metallb/internal/version.gitBranch=%{branch}'"
 
 {{{- if semverCompare "<0.13.6" $version }}}
-%global binaries "controller" "mirror-server" "speaker"
+%global binaries "controller" "mirror-server" "speaker" "configmaptocrs"
 {{{- else }}}
-%global binaries "controller" "speaker"
+%global binaries "controller" "speaker" "configmaptocrs"
 {{{- end }}}
 
 for bin in %{binaries}
@@ -73,4 +73,4 @@ rm -rf src
 
 %changelog
 * {{{.changelog_timestamp}}} - %{version}-1
-- Added Oracle Specific Build Files for grafana
+- Added configmaptocrs to binaries list
