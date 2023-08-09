@@ -46,30 +46,46 @@ yumdownloader --destdir=${PWD}/rpms %{rpm_name}
 
 for bin in %{binaries}
 do
+    {{{- if semverCompare "<0.13.6" $version }}}
     %define docker_tag %{registry}/%{app_name}-${bin}:v%{version}
+    {{{- else }}}
+    %define docker_tag %{registry}/${bin}:v%{version}
+    {{{- end }}}
     docker build --pull --build-arg https_proxy=${https_proxy} \
         -t %{docker_tag} -f ./olm/builds/%{dockerfile}.${bin} .
     docker build --pull \
         --build-arg http_proxy=${https_proxy} \
         --build-arg https_proxy=${https_proxy} \
         -t %{docker_tag} -f ./olm/builds/%{dockerfile}.${bin} .
+    {{{- if semverCompare "<0.13.6" $version }}}
     docker save -o %{app_name}-${bin}.tar %{docker_tag}
+    {{{- else }}}
+    docker save -o ${bin}.tar %{docker_tag}
+    {{{- end }}}
 done
 
 %install
 for bin in %{binaries}
 do
+    {{{- if semverCompare "<0.13.6" $version }}}
     %__install -D -m 644 %{app_name}-${bin}.tar %{buildroot}/usr/local/share/olcne/%{app_name}-${bin}.tar
+    {{{- else }}}
+    %__install -D -m 644 ${bin}.tar %{buildroot}/usr/local/share/olcne/${bin}.tar
+    {{{- end }}}
 done
 
 %files
 %license LICENSE THIRD_PARTY_LICENSES.txt SECURITY.md
-/usr/local/share/olcne/%{app_name}-controller.tar
-/usr/local/share/olcne/%{app_name}-speaker.tar
 {{{- if semverCompare "<0.13.6" $version }}}
 /usr/local/share/olcne/%{app_name}-mirror-server.tar
-{{{- end }}}
+/usr/local/share/olcne/%{app_name}-controller.tar
+/usr/local/share/olcne/%{app_name}-speaker.tar
 /usr/local/share/olcne/%{app_name}-configmaptocrs.tar
+{{{- else }}}
+/usr/local/share/olcne/controller.tar
+/usr/local/share/olcne/speaker.tar
+/usr/local/share/olcne/configmaptocrs.tar
+{{{- end }}}
 
 
 %changelog

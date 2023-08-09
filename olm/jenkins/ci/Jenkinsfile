@@ -17,13 +17,20 @@ olcnePipeline(
   ],
 {{{- else }}}
   containers: [
-    ('container-registry.oracle.com/olcne/metallb-controller:' + image_tag)     : 'olcne/metallb-controller:' + image_tag,
-    ('container-registry.oracle.com/olcne/metallb-speaker:' + image_tag)        : 'olcne/metallb-speaker:' + image_tag,
-    ('container-registry.oracle.com/olcne/metallb-configmaptocrs:' + image_tag) : 'olcne/metallb-configmaptocrs:' + image_tag
+    ('container-registry.oracle.com/olcne/controller:' + image_tag)     : 'olcne/controller:' + image_tag,
+    ('container-registry.oracle.com/olcne/speaker:' + image_tag)        : 'olcne/speaker:' + image_tag,
+    ('container-registry.oracle.com/olcne/configmaptocrs:' + image_tag) : 'olcne/configmaptocrs:' + image_tag
   ],
 {{{- end }}}
-  platforms: ['ol8'],
+  platforms: ['ol8', 'ol9'],
   yumOL8Repos: ['ol8_appstream', 'ol8_developer'],
   ol8ModulesToDisable: ['go-toolset:ol8'],
-  ol8ModulesToEnable: ['go-toolset:ol8addon']
+  ol8ModulesToEnable: ['go-toolset:ol8addon'],
+  yumOL9Repos: ['ol9_appstream', 'ol9_developer'],
+  customPlatformStages: [
+    customPlatformSteps: [
+      ol8: [container: [enabled: true ], buildContainerRpms: [enabled: true ]],
+      ol9: [container: [enabled: false ], buildContainerRpms: [enabled: false ]],
+    ],
+  ]
 )
