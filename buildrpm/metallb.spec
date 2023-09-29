@@ -9,8 +9,12 @@
 %global app_name metallb
 %global app_version {{{$version}}}
 %global oracle_release_version 1
-%global arch x86_64
 %global golang_version 1.17
+%ifarch %{arm} arm64 aarch64
+%global arch aarch64
+%else
+%global arch x86_64
+%endif
 %global _buildhost build-ol%{?oraclelinux}-%{?_arch}.oracle.com
 
 Name:               %{app_name}
@@ -20,7 +24,6 @@ Summary:            A network load-balancer implementation for Kubernetes using 
 License:            Apache 2.0
 URL:                https://github.com/metallb/metallb/
 Source:             %{name}-%{version}.tar.bz2
-ExclusiveArch:      %{arch}
 Vendor:             Oracle America
 Group:              System/Management
 BuildRequires:      golang >= %{golang_version}

@@ -23,6 +23,7 @@ olcnePipeline(
   ],
 {{{- end }}}
   platforms: ['ol8', 'ol9'],
+  architectures: ['x86_64', 'aarch64'],
   yumOL8Repos: ['ol8_appstream', 'ol8_developer'],
   ol8ModulesToDisable: ['go-toolset:ol8'],
   ol8ModulesToEnable: ['go-toolset:ol8addon'],
