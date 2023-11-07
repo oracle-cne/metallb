@@ -9,7 +9,7 @@
 %global app_name metallb
 %global app_version {{{$version}}}
 %global oracle_release_version 1
-%global golang_version 1.17
+%global golang_version 1.20.10
 %ifarch %{arm} arm64 aarch64
 %global arch aarch64
 %else
