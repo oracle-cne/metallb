@@ -1189,8 +1189,8 @@ SPDX:Apache-2.0
 
 == Copyright
 + GO_PKG=github.com/metallb/frr-k8s:v0.0.8
-++ cut -d: -f1
 ++ echo github.com/metallb/frr-k8s:v0.0.8
+++ cut -d: -f1
 + pkg=github.com/metallb/frr-k8s
 ++ echo github.com/metallb/frr-k8s:v0.0.8
 ++ cut -d: -f2
@@ -1231,13 +1231,13 @@ ull ]]
 + subcomponent=
 + [[ -n '' ]]
 ++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
-++ cut -d: -f2
+++ sort
 ++ sed 's/^[[:space:]#/*]+//'
+++ uniq
 ++ tr '
 ' '
 '
-++ uniq
-++ sort
+++ cut -d: -f2
 ++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
 + copyright_txt='Copyright (C) 2004, 2006 The Linux Foundation and its contributors.
 Copyright 2023.
