@@ -1189,8 +1189,8 @@ SPDX:Apache-2.0
 
 == Copyright
 + GO_PKG=github.com/metallb/frr-k8s:v0.0.8
-++ cut -d: -f1
 ++ echo github.com/metallb/frr-k8s:v0.0.8
+++ cut -d: -f1
 + pkg=github.com/metallb/frr-k8s
 ++ echo github.com/metallb/frr-k8s:v0.0.8
 ++ cut -d: -f2
@@ -1203,8 +1203,8 @@ SPDX:Apache-2.0
 + query='curl -s https://proxy.golang.org/github.com/metallb/frr-k8s/@v/v0.0.8.info|jq -r '''.Origin.URL''''
 + pkg_version=v0.0.8
 ++ eval 'curl -s https://proxy.golang.org/github.com/metallb/frr-k8s/@v/v0.0.8.info|jq -r '''.Origin.URL''''
-+++ curl -s https://proxy.golang.org/github.com/metallb/frr-k8s/@v/v0.0.8.info
 +++ jq -r .Origin.URL
++++ curl -s https://proxy.golang.org/github.com/metallb/frr-k8s/@v/v0.0.8.info
 + pkg_github_url=https://github.com/metallb/frr-k8s
 + [[ https://github.com/metallb/frr-k8s = 
 ull ]]
@@ -1230,12 +1230,12 @@ ull ]]
 ++ find . -type d -name '' -print -quit
 + subcomponent=
 + [[ -n '' ]]
-++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
 ++ cut -d: -f2
 ++ uniq
-++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
 ++ sort
 ++ sed 's/^[[:space:]#/*]+//'
+++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
+++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
 ++ tr '
 ' '
 '
