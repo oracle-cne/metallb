@@ -1381,8 +1381,8 @@ SPDX:Apache-2.0
 
 == Copyright
 + GO_PKG=github.com/openshift-kni/k8sreporter:v0.1.0
-++ cut -d: -f1
 ++ echo github.com/openshift-kni/k8sreporter:v0.1.0
+++ cut -d: -f1
 + pkg=github.com/openshift-kni/k8sreporter
 ++ cut -d: -f2
 ++ echo github.com/openshift-kni/k8sreporter:v0.1.0
@@ -1395,8 +1395,8 @@ SPDX:Apache-2.0
 + query='curl -s https://proxy.golang.org/github.com/openshift-kni/k8sreporter/@v/v0.1.0.info|jq -r '''.Origin.URL''''
 + pkg_version=v0.1.0
 ++ eval 'curl -s https://proxy.golang.org/github.com/openshift-kni/k8sreporter/@v/v0.1.0.info|jq -r '''.Origin.URL''''
-+++ jq -r .Origin.URL
 +++ curl -s https://proxy.golang.org/github.com/openshift-kni/k8sreporter/@v/v0.1.0.info
++++ jq -r .Origin.URL
 + pkg_github_url=null
 + [[ null = 
 ull ]]
@@ -1424,20 +1424,20 @@ ull ]]
 ++ tr '
 ' '
 '
-++ cut -d: -f2
-++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
-++ uniq
-++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
 ++ sed 's/^[[:space:]#/*]+//'
+++ cut -d: -f2
+++ uniq
 ++ sort
+++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
+++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
 + copyright_txt=
 + [[ -z '' ]]
-++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
-++ sort
 ++ uniq
+++ sort
 ++ tr '
 ' '
 '
+++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
 + copyright_txt='Copyright 2022 Federico Paolinelli fpaoline@redhat.com
 Copyright 2022 GitHub noreply@github.com
 '
