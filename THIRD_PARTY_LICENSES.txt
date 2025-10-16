@@ -464,8 +464,8 @@ SPDX:MPL-2.0
 ++ echo github.com/hashicorp/memberlist:v0.1.7
 ++ cut -d: -f1
 + pkg=github.com/hashicorp/memberlist
-++ cut -d: -f2
 ++ echo github.com/hashicorp/memberlist:v0.1.7
+++ cut -d: -f2
 + pkg_version=v0.1.7
 + [[ -z github.com/hashicorp/memberlist ]]
 + [[ -z v0.1.7 ]]
@@ -475,8 +475,8 @@ SPDX:MPL-2.0
 + query='curl -s https://proxy.golang.org/github.com/hashicorp/memberlist/@v/v0.1.7.info|jq -r '''.Origin.URL''''
 + pkg_version=v0.1.7
 ++ eval 'curl -s https://proxy.golang.org/github.com/hashicorp/memberlist/@v/v0.1.7.info|jq -r '''.Origin.URL''''
-+++ jq -r .Origin.URL
 +++ curl -s https://proxy.golang.org/github.com/hashicorp/memberlist/@v/v0.1.7.info
++++ jq -r .Origin.URL
 + pkg_github_url=null
 + [[ null = 
 ull ]]
@@ -486,8 +486,8 @@ ull ]]
 + [[ -z https://github.com/hashicorp/memberlist ]]
 + [[ https://github.com/hashicorp/memberlist = 
 ull ]]
-++ sed 's|/v[0-9]+/*$||'
 ++ echo https://github.com/hashicorp/memberlist
+++ sed 's|/v[0-9]+/*$||'
 + pkg_github_url=https://github.com/hashicorp/memberlist
 + trimmed_dir=
 + [[ https://github.com/hashicorp/memberlist != h		ps://gi	hu.com ]]
@@ -502,19 +502,19 @@ ull ]]
 + subcomponent=
 + [[ -n '' ]]
 ++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
+++ cut -d: -f2
+++ sed 's/^[[:space:]#/*]+//'
+++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
+++ sort
 ++ tr '
 ' '
 '
-++ sort
-++ cut -d: -f2
-++ sed 's/^[[:space:]#/*]+//'
 ++ uniq
-++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
 + copyright_txt=
 + [[ -z '' ]]
+++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
 ++ sort
 ++ uniq
-++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
 ++ tr '
 ' '
 '
@@ -828,8 +828,8 @@ SPDX:Apache-2.0
 ++ echo github.com/metallb/metallb-operator:v0.0.0-20211223114020-a8fc2e0875fc
 ++ cut -d: -f1
 + pkg=github.com/metallb/metallb-operator
-++ cut -d: -f2
 ++ echo github.com/metallb/metallb-operator:v0.0.0-20211223114020-a8fc2e0875fc
+++ cut -d: -f2
 + pkg_version=v0.0.0-20211223114020-a8fc2e0875fc
 + [[ -z github.com/metallb/metallb-operator ]]
 + [[ -z v0.0.0-20211223114020-a8fc2e0875fc ]]
@@ -840,8 +840,8 @@ SPDX:Apache-2.0
 + query='curl -s https://proxy.golang.org/github.com/metallb/metallb-operator/@v/v0.0.0-20211223114020-a8fc2e0875fc.info|jq -r '''.Origin.URL''''
 + pkg_version=a8fc2e0875fc
 ++ eval 'curl -s https://proxy.golang.org/github.com/metallb/metallb-operator/@v/v0.0.0-20211223114020-a8fc2e0875fc.info|jq -r '''.Origin.URL''''
-+++ jq -r .Origin.URL
 +++ curl -s https://proxy.golang.org/github.com/metallb/metallb-operator/@v/v0.0.0-20211223114020-a8fc2e0875fc.info
++++ jq -r .Origin.URL
 + pkg_github_url=null
 + [[ null = 
 ull ]]
@@ -866,19 +866,19 @@ ull ]]
 ++ find . -type d -name '' -print -quit
 + subcomponent=
 + [[ -n '' ]]
-++ sort
-++ cut -d: -f2
 ++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
+++ cut -d: -f2
+++ sed 's/^[[:space:]#/*]+//'
+++ sort
+++ uniq
+++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
 ++ tr '
 ' '
 '
-++ sed 's/^[[:space:]#/*]+//'
-++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
-++ uniq
 + copyright_txt=
 + [[ -z '' ]]
-++ sort
 ++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
+++ sort
 ++ uniq
 ++ tr '
 ' '
