@@ -1366,8 +1366,8 @@ ull ]]
 + [[ -z https://github.com/openshift-kni/k8sreporter ]]
 + [[ https://github.com/openshift-kni/k8sreporter = 
 ull ]]
-++ echo https://github.com/openshift-kni/k8sreporter
 ++ sed 's|/v[0-9]+/*$||'
+++ echo https://github.com/openshift-kni/k8sreporter
 + pkg_github_url=https://github.com/openshift-kni/k8sreporter
 + trimmed_dir=
 + [[ https://github.com/openshift-kni/k8sreporter != h		ps://gi	hu.com ]]
@@ -1381,23 +1381,23 @@ ull ]]
 ++ find . -type d -name '' -print -quit
 + subcomponent=
 + [[ -n '' ]]
-++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
-++ uniq
-++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
-++ sed 's/^[[:space:]#/*]+//'
 ++ sort
 ++ cut -d: -f2
 ++ tr '
 ' '
 '
+++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
+++ uniq
+++ sed 's/^[[:space:]#/*]+//'
+++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
 + copyright_txt=
 + [[ -z '' ]]
 ++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
-++ sort
-++ uniq
 ++ tr '
 ' '
 '
+++ sort
+++ uniq
 + copyright_txt='Copyright 2022 Federico Paolinelli fpaoline@redhat.com
 Copyright 2022 GitHub noreply@github.com
 '
