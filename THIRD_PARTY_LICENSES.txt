@@ -1341,8 +1341,8 @@ SPDX:Apache-2.0
 
 == Copyright
 + GO_PKG=github.com/openshift-kni/k8sreporter:v0.1.0
-++ echo github.com/openshift-kni/k8sreporter:v0.1.0
 ++ cut -d: -f1
+++ echo github.com/openshift-kni/k8sreporter:v0.1.0
 + pkg=github.com/openshift-kni/k8sreporter
 ++ echo github.com/openshift-kni/k8sreporter:v0.1.0
 ++ cut -d: -f2
@@ -1381,15 +1381,15 @@ ull ]]
 ++ find . -type d -name '' -print -quit
 + subcomponent=
 + [[ -n '' ]]
+++ sed 's/^[[:space:]#/*]+//'
 ++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
-++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
+++ sort
+++ cut -d: -f2
 ++ uniq
+++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
 ++ tr '
 ' '
 '
-++ sort
-++ sed 's/^[[:space:]#/*]+//'
-++ cut -d: -f2
 + copyright_txt=
 + [[ -z '' ]]
 ++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
