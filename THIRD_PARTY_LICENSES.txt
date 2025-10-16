@@ -1355,8 +1355,8 @@ SPDX:Apache-2.0
 + query='curl -s https://proxy.golang.org/github.com/openshift-kni/k8sreporter/@v/v0.1.0.info|jq -r '''.Origin.URL''''
 + pkg_version=v0.1.0
 ++ eval 'curl -s https://proxy.golang.org/github.com/openshift-kni/k8sreporter/@v/v0.1.0.info|jq -r '''.Origin.URL''''
-+++ curl -s https://proxy.golang.org/github.com/openshift-kni/k8sreporter/@v/v0.1.0.info
 +++ jq -r .Origin.URL
++++ curl -s https://proxy.golang.org/github.com/openshift-kni/k8sreporter/@v/v0.1.0.info
 + pkg_github_url=null
 + [[ null = 
 ull ]]
@@ -1366,8 +1366,8 @@ ull ]]
 + [[ -z https://github.com/openshift-kni/k8sreporter ]]
 + [[ https://github.com/openshift-kni/k8sreporter = 
 ull ]]
-++ echo https://github.com/openshift-kni/k8sreporter
 ++ sed 's|/v[0-9]+/*$||'
+++ echo https://github.com/openshift-kni/k8sreporter
 + pkg_github_url=https://github.com/openshift-kni/k8sreporter
 + trimmed_dir=
 + [[ https://github.com/openshift-kni/k8sreporter != h		ps://gi	hu.com ]]
@@ -1382,14 +1382,14 @@ ull ]]
 + subcomponent=
 + [[ -n '' ]]
 ++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
+++ sed 's/^[[:space:]#/*]+//'
+++ cut -d: -f2
+++ sort
+++ uniq
+++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
 ++ tr '
 ' '
 '
-++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
-++ uniq
-++ sort
-++ cut -d: -f2
-++ sed 's/^[[:space:]#/*]+//'
 + copyright_txt=
 + [[ -z '' ]]
 ++ sort
