@@ -675,8 +675,8 @@ SPDX:Apache-2.0
 
 == Copyright
 + GO_PKG=github.com/metallb/frr-k8s:v0.0.14
-++ echo github.com/metallb/frr-k8s:v0.0.14
 ++ cut -d: -f1
+++ echo github.com/metallb/frr-k8s:v0.0.14
 + pkg=github.com/metallb/frr-k8s
 ++ cut -d: -f2
 ++ echo github.com/metallb/frr-k8s:v0.0.14
@@ -689,8 +689,8 @@ SPDX:Apache-2.0
 + query='curl -s https://proxy.golang.org/github.com/metallb/frr-k8s/@v/v0.0.14.info|jq -r '''.Origin.URL''''
 + pkg_version=v0.0.14
 ++ eval 'curl -s https://proxy.golang.org/github.com/metallb/frr-k8s/@v/v0.0.14.info|jq -r '''.Origin.URL''''
-+++ jq -r .Origin.URL
 +++ curl -s https://proxy.golang.org/github.com/metallb/frr-k8s/@v/v0.0.14.info
++++ jq -r .Origin.URL
 + pkg_github_url=https://github.com/metallb/frr-k8s
 + [[ https://github.com/metallb/frr-k8s = 
 ull ]]
@@ -716,15 +716,15 @@ ull ]]
 ++ find . -type d -name '' -print -quit
 + subcomponent=
 + [[ -n '' ]]
-++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
-++ sed 's/^[[:space:]#/*]+//'
 ++ cut -d: -f2
+++ uniq
+++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
 ++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
 ++ tr '
 ' '
 '
+++ sed 's/^[[:space:]#/*]+//'
 ++ sort
-++ uniq
 + copyright_txt='Copyright (C) 2004, 2006 The Linux Foundation and its contributors.
 Copyright 2020 The Kubernetes Authors.
 Copyright 2023.
