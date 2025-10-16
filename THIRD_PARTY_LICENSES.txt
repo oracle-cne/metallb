@@ -1366,8 +1366,8 @@ ull ]]
 + [[ -z https://github.com/openshift-kni/k8sreporter ]]
 + [[ https://github.com/openshift-kni/k8sreporter = 
 ull ]]
-++ sed 's|/v[0-9]+/*$||'
 ++ echo https://github.com/openshift-kni/k8sreporter
+++ sed 's|/v[0-9]+/*$||'
 + pkg_github_url=https://github.com/openshift-kni/k8sreporter
 + trimmed_dir=
 + [[ https://github.com/openshift-kni/k8sreporter != h		ps://gi	hu.com ]]
@@ -1383,21 +1383,21 @@ ull ]]
 + [[ -n '' ]]
 ++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
 ++ sed 's/^[[:space:]#/*]+//'
+++ cut -d: -f2
+++ sort
+++ uniq
 ++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
 ++ tr '
 ' '
 '
-++ sort
-++ cut -d: -f2
-++ uniq
 + copyright_txt=
 + [[ -z '' ]]
-++ uniq
-++ sort
 ++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
+++ sort
 ++ tr '
 ' '
 '
+++ uniq
 + copyright_txt='Copyright 2022 Federico Paolinelli fpaoline@redhat.com
 Copyright 2022 GitHub noreply@github.com
 '
