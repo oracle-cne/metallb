@@ -1384,8 +1384,8 @@ SPDX:Apache-2.0
 ++ echo github.com/openshift-kni/k8sreporter:v0.1.0
 ++ cut -d: -f1
 + pkg=github.com/openshift-kni/k8sreporter
-++ cut -d: -f2
 ++ echo github.com/openshift-kni/k8sreporter:v0.1.0
+++ cut -d: -f2
 + pkg_version=v0.1.0
 + [[ -z github.com/openshift-kni/k8sreporter ]]
 + [[ -z v0.1.0 ]]
@@ -1421,23 +1421,23 @@ ull ]]
 ++ find . -type d -name '' -print -quit
 + subcomponent=
 + [[ -n '' ]]
-++ sed 's/^[[:space:]#/*]+//'
 ++ cut -d: -f2
 ++ sort
-++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
-++ uniq
 ++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
+++ uniq
 ++ tr '
 ' '
 '
+++ sed 's/^[[:space:]#/*]+//'
+++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
 + copyright_txt=
 + [[ -z '' ]]
+++ uniq
 ++ tr '
 ' '
 '
-++ uniq
-++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
 ++ sort
+++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
 + copyright_txt='Copyright 2022 Federico Paolinelli fpaoline@redhat.com
 Copyright 2022 GitHub noreply@github.com
 '
