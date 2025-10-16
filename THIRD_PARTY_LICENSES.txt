@@ -464,8 +464,8 @@ SPDX:MPL-2.0
 ++ cut -d: -f1
 ++ echo github.com/hashicorp/memberlist:v0.1.7
 + pkg=github.com/hashicorp/memberlist
-++ cut -d: -f2
 ++ echo github.com/hashicorp/memberlist:v0.1.7
+++ cut -d: -f2
 + pkg_version=v0.1.7
 + [[ -z github.com/hashicorp/memberlist ]]
 + [[ -z v0.1.7 ]]
@@ -475,8 +475,8 @@ SPDX:MPL-2.0
 + query='curl -s https://proxy.golang.org/github.com/hashicorp/memberlist/@v/v0.1.7.info|jq -r '''.Origin.URL''''
 + pkg_version=v0.1.7
 ++ eval 'curl -s https://proxy.golang.org/github.com/hashicorp/memberlist/@v/v0.1.7.info|jq -r '''.Origin.URL''''
-+++ jq -r .Origin.URL
 +++ curl -s https://proxy.golang.org/github.com/hashicorp/memberlist/@v/v0.1.7.info
++++ jq -r .Origin.URL
 + pkg_github_url=null
 + [[ null = 
 ull ]]
@@ -501,22 +501,22 @@ ull ]]
 ++ find . -type d -name '' -print -quit
 + subcomponent=
 + [[ -n '' ]]
-++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
-++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
 ++ sed 's/^[[:space:]#/*]+//'
-++ uniq
 ++ cut -d: -f2
+++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
+++ sort
+++ uniq
 ++ tr '
 ' '
 '
-++ sort
+++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
 + copyright_txt=
 + [[ -z '' ]]
-++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
+++ uniq
 ++ tr '
 ' '
 '
-++ uniq
+++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
 ++ sort
 + copyright_txt='Copyright 2013 Armon Dadgar armon.dadgar@gmail.com
 Copyright 2013 Ben Agricola bagricola@squiz.co.uk
@@ -866,22 +866,22 @@ ull ]]
 ++ find . -type d -name '' -print -quit
 + subcomponent=
 + [[ -n '' ]]
-++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
-++ sort
-++ sed 's/^[[:space:]#/*]+//'
+++ uniq
 ++ tr '
 ' '
 '
-++ uniq
+++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
 ++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
+++ sed 's/^[[:space:]#/*]+//'
+++ sort
 ++ cut -d: -f2
 + copyright_txt=
 + [[ -z '' ]]
+++ sort
+++ uniq
 ++ tr '
 ' '
 '
-++ uniq
-++ sort
 ++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
 + copyright_txt='Copyright 2021 Federico Paolinelli fpaoline@redhat.com
 Copyright 2021 GitHub noreply@github.com
