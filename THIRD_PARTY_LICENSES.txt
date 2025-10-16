@@ -461,8 +461,8 @@ SPDX:MPL-2.0
 
 == Copyright
 + GO_PKG=github.com/hashicorp/memberlist:v0.1.7
-++ echo github.com/hashicorp/memberlist:v0.1.7
 ++ cut -d: -f1
+++ echo github.com/hashicorp/memberlist:v0.1.7
 + pkg=github.com/hashicorp/memberlist
 ++ echo github.com/hashicorp/memberlist:v0.1.7
 ++ cut -d: -f2
@@ -486,8 +486,8 @@ ull ]]
 + [[ -z https://github.com/hashicorp/memberlist ]]
 + [[ https://github.com/hashicorp/memberlist = 
 ull ]]
-++ sed 's|/v[0-9]+/*$||'
 ++ echo https://github.com/hashicorp/memberlist
+++ sed 's|/v[0-9]+/*$||'
 + pkg_github_url=https://github.com/hashicorp/memberlist
 + trimmed_dir=
 + [[ https://github.com/hashicorp/memberlist != h		ps://gi	hu.com ]]
@@ -501,23 +501,23 @@ ull ]]
 ++ find . -type d -name '' -print -quit
 + subcomponent=
 + [[ -n '' ]]
-++ sed 's/^[[:space:]#/*]+//'
 ++ cut -d: -f2
 ++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
-++ uniq
+++ sed 's/^[[:space:]#/*]+//'
+++ sort
 ++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
+++ uniq
 ++ tr '
 ' '
 '
-++ sort
 + copyright_txt=
 + [[ -z '' ]]
+++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
+++ uniq
 ++ sort
 ++ tr '
 ' '
 '
-++ uniq
-++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
 + copyright_txt='Copyright 2013 Armon Dadgar armon.dadgar@gmail.com
 Copyright 2013 Ben Agricola bagricola@squiz.co.uk
 Copyright 2013 Felix Geisendörfer felix@debuggable.com
@@ -825,8 +825,8 @@ SPDX:Apache-2.0
 
 == Copyright
 + GO_PKG=github.com/metallb/metallb-operator:v0.0.0-20211223114020-a8fc2e0875fc
-++ echo github.com/metallb/metallb-operator:v0.0.0-20211223114020-a8fc2e0875fc
 ++ cut -d: -f1
+++ echo github.com/metallb/metallb-operator:v0.0.0-20211223114020-a8fc2e0875fc
 + pkg=github.com/metallb/metallb-operator
 ++ cut -d: -f2
 ++ echo github.com/metallb/metallb-operator:v0.0.0-20211223114020-a8fc2e0875fc
@@ -840,8 +840,8 @@ SPDX:Apache-2.0
 + query='curl -s https://proxy.golang.org/github.com/metallb/metallb-operator/@v/v0.0.0-20211223114020-a8fc2e0875fc.info|jq -r '''.Origin.URL''''
 + pkg_version=a8fc2e0875fc
 ++ eval 'curl -s https://proxy.golang.org/github.com/metallb/metallb-operator/@v/v0.0.0-20211223114020-a8fc2e0875fc.info|jq -r '''.Origin.URL''''
-+++ curl -s https://proxy.golang.org/github.com/metallb/metallb-operator/@v/v0.0.0-20211223114020-a8fc2e0875fc.info
 +++ jq -r .Origin.URL
++++ curl -s https://proxy.golang.org/github.com/metallb/metallb-operator/@v/v0.0.0-20211223114020-a8fc2e0875fc.info
 + pkg_github_url=null
 + [[ null = 
 ull ]]
@@ -851,8 +851,8 @@ ull ]]
 + [[ -z https://github.com/metallb/metallb-operator ]]
 + [[ https://github.com/metallb/metallb-operator = 
 ull ]]
-++ echo https://github.com/metallb/metallb-operator
 ++ sed 's|/v[0-9]+/*$||'
+++ echo https://github.com/metallb/metallb-operator
 + pkg_github_url=https://github.com/metallb/metallb-operator
 + trimmed_dir=
 + [[ https://github.com/metallb/metallb-operator != h		ps://gi	hu.com ]]
@@ -866,23 +866,23 @@ ull ]]
 ++ find . -type d -name '' -print -quit
 + subcomponent=
 + [[ -n '' ]]
-++ sed 's/^[[:space:]#/*]+//'
+++ sort
 ++ uniq
+++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
+++ sed 's/^[[:space:]#/*]+//'
+++ tr '
+' '
+'
 ++ cut -d: -f2
 ++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
-++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
-++ tr '
-' '
-'
-++ sort
 + copyright_txt=
 + [[ -z '' ]]
-++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
-++ sort
-++ uniq
 ++ tr '
 ' '
 '
+++ sort
+++ uniq
+++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
 + copyright_txt='Copyright 2021 Federico Paolinelli fpaoline@redhat.com
 Copyright 2021 GitHub noreply@github.com
 Copyright 2021 Mohamed Mahmoud mmahmoud@redhat.com
