@@ -7,7 +7,7 @@ String metallb_version = "{{{ $version }}}"
 String image_tag = 'v' + metallb_version
 
 olcnePipeline(
-  branchPattern: new BranchPattern(master: 'oracle/release/' + metallb_version, feature: 'feature/.*'),
+  branchPattern: new BranchPattern(master: 'oracle/release/' + metallb_version, feature: '(?!^release/.*$)(^.*$)'),
 {{{- if semverCompare "<0.13.6" $version }}}
   containers: [
     ('container-registry.oracle.com/olcne/metallb-controller:' + image_tag)     : 'olcne/metallb-controller:' + image_tag,
