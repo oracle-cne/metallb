@@ -712,8 +712,8 @@ SPDX:Apache-2.0
 + query='curl -s https://proxy.golang.org/github.com/metallb/frr-k8s/@v/v0.0.10.info|jq -r '''.Origin.URL''''
 + pkg_version=v0.0.10
 ++ eval 'curl -s https://proxy.golang.org/github.com/metallb/frr-k8s/@v/v0.0.10.info|jq -r '''.Origin.URL''''
-+++ jq -r .Origin.URL
 +++ curl -s https://proxy.golang.org/github.com/metallb/frr-k8s/@v/v0.0.10.info
++++ jq -r .Origin.URL
 + pkg_github_url=https://github.com/metallb/frr-k8s
 + [[ https://github.com/metallb/frr-k8s = 
 ull ]]
@@ -740,14 +740,14 @@ ull ]]
 + subcomponent=
 + [[ -n '' ]]
 ++ sed 's/^[[:space:]#/*]+//'
+++ sort
 ++ uniq
 ++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
-++ cut -d: -f2
 ++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
 ++ tr '
 ' '
 '
-++ sort
+++ cut -d: -f2
 + copyright_txt='Copyright (C) 2004, 2006 The Linux Foundation and its contributors.
 Copyright 2023.
 '
