@@ -1861,15 +1861,15 @@ ull ]]
 ++ find . -type d -name '' -print -quit
 + subcomponent=
 + [[ -n '' ]]
-++ sed 's/^[[:space:]#/*]+//'
-++ sort
+++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
 ++ tr '
 ' '
 '
 ++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
 ++ cut -d: -f2
+++ sed 's/^[[:space:]#/*]+//'
 ++ uniq
-++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
+++ sort
 + copyright_txt='Copyright (C) 2006 - 2019, The Apache Software Foundation
 Copyright (c) 2006- Facebook
 Copyright (c) 2006-2008 Alexander Chemeris
