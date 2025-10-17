@@ -1826,8 +1826,8 @@ SPDX:Apache-2.0
 ++ cut -d: -f1
 ++ echo go.opentelemetry.io/otel/trace:v1.10.0
 + pkg=go.opentelemetry.io/otel/trace
-++ cut -d: -f2
 ++ echo go.opentelemetry.io/otel/trace:v1.10.0
+++ cut -d: -f2
 + pkg_version=v1.10.0
 + [[ -z go.opentelemetry.io/otel/trace ]]
 + [[ -z v1.10.0 ]]
@@ -1837,8 +1837,8 @@ SPDX:Apache-2.0
 + query='curl -s https://proxy.golang.org/go.opentelemetry.io/otel/trace/@v/v1.10.0.info|jq -r '''.Origin.URL''''
 + pkg_version=v1.10.0
 ++ eval 'curl -s https://proxy.golang.org/go.opentelemetry.io/otel/trace/@v/v1.10.0.info|jq -r '''.Origin.URL''''
-+++ curl -s https://proxy.golang.org/go.opentelemetry.io/otel/trace/@v/v1.10.0.info
 +++ jq -r .Origin.URL
++++ curl -s https://proxy.golang.org/go.opentelemetry.io/otel/trace/@v/v1.10.0.info
 + pkg_github_url=https://github.com/open-telemetry/opentelemetry-go
 + [[ https://github.com/open-telemetry/opentelemetry-go = 
 ull ]]
@@ -1861,15 +1861,15 @@ ull ]]
 ++ find . -type d -name '' -print -quit
 + subcomponent=
 + [[ -n '' ]]
+++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
+++ sort
+++ cut -d: -f2
+++ uniq
 ++ tr '
 ' '
 '
-++ cut -d: -f2
-++ uniq
 ++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
-++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
 ++ sed 's/^[[:space:]#/*]+//'
-++ sort
 + copyright_txt='Copyright (C) 2006 - 2019, The Apache Software Foundation
 Copyright (c) 2006- Facebook
 Copyright (c) 2006-2008 Alexander Chemeris
