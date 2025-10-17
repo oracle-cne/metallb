@@ -1382,22 +1382,22 @@ ull ]]
 + subcomponent=
 + [[ -n '' ]]
 ++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
-++ sort
-++ sed 's/^[[:space:]#/*]+//'
-++ uniq
+++ cut -d: -f2
 ++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
+++ uniq
+++ sed 's/^[[:space:]#/*]+//'
 ++ tr '
 ' '
 '
-++ cut -d: -f2
+++ sort
 + copyright_txt=
 + [[ -z '' ]]
 ++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
 ++ sort
-++ uniq
 ++ tr '
 ' '
 '
+++ uniq
 + copyright_txt='Copyright 2022 Federico Paolinelli fpaoline@redhat.com
 Copyright 2022 GitHub noreply@github.com
 '
