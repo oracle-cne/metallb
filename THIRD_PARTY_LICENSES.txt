@@ -678,8 +678,8 @@ SPDX:Apache-2.0
 ++ echo github.com/metallb/frr-k8s:v0.0.13
 ++ cut -d: -f1
 + pkg=github.com/metallb/frr-k8s
-++ cut -d: -f2
 ++ echo github.com/metallb/frr-k8s:v0.0.13
+++ cut -d: -f2
 + pkg_version=v0.0.13
 + [[ -z github.com/metallb/frr-k8s ]]
 + [[ -z v0.0.13 ]]
@@ -716,15 +716,15 @@ ull ]]
 ++ find . -type d -name '' -print -quit
 + subcomponent=
 + [[ -n '' ]]
+++ cut -d: -f2
+++ sed 's/^[[:space:]#/*]+//'
+++ sort
+++ uniq
+++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
+++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
 ++ tr '
 ' '
 '
-++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
-++ sed 's/^[[:space:]#/*]+//'
-++ uniq
-++ cut -d: -f2
-++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
-++ sort
 + copyright_txt='Copyright (C) 2004, 2006 The Linux Foundation and its contributors.
 Copyright 2020 The Kubernetes Authors.
 Copyright 2023.
