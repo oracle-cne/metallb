@@ -1344,8 +1344,8 @@ SPDX:Apache-2.0
 ++ echo github.com/openshift-kni/k8sreporter:v0.1.0
 ++ cut -d: -f1
 + pkg=github.com/openshift-kni/k8sreporter
-++ echo github.com/openshift-kni/k8sreporter:v0.1.0
 ++ cut -d: -f2
+++ echo github.com/openshift-kni/k8sreporter:v0.1.0
 + pkg_version=v0.1.0
 + [[ -z github.com/openshift-kni/k8sreporter ]]
 + [[ -z v0.1.0 ]]
@@ -1381,15 +1381,15 @@ ull ]]
 ++ find . -type d -name '' -print -quit
 + subcomponent=
 + [[ -n '' ]]
-++ tr '
-' '
-'
-++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
-++ uniq
+++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
 ++ cut -d: -f2
 ++ sed 's/^[[:space:]#/*]+//'
 ++ sort
-++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
+++ uniq
+++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
+++ tr '
+' '
+'
 + copyright_txt=
 + [[ -z '' ]]
 ++ sort
