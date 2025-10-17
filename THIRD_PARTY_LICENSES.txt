@@ -1381,15 +1381,15 @@ ull ]]
 ++ find . -type d -name '' -print -quit
 + subcomponent=
 + [[ -n '' ]]
+++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
+++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
+++ uniq
 ++ sed 's/^[[:space:]#/*]+//'
 ++ tr '
 ' '
 '
-++ uniq
-++ sort
-++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
 ++ cut -d: -f2
-++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
+++ sort
 + copyright_txt=
 + [[ -z '' ]]
 ++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
