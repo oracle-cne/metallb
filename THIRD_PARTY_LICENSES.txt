@@ -1340,72 +1340,6 @@ go.opentelemetry.io/contrib
 SPDX:Apache-2.0
 
 == Copyright
-+ GO_PKG=github.com/openshift-kni/k8sreporter:v0.1.0
-++ echo github.com/openshift-kni/k8sreporter:v0.1.0
-++ cut -d: -f1
-+ pkg=github.com/openshift-kni/k8sreporter
-++ echo github.com/openshift-kni/k8sreporter:v0.1.0
-++ cut -d: -f2
-+ pkg_version=v0.1.0
-+ [[ -z github.com/openshift-kni/k8sreporter ]]
-+ [[ -z v0.1.0 ]]
-+ pkg=github.com/openshift-kni/k8sreporter
-+ query=
-+ [[ v0.1.0 =~ ^v[0-9]+.[0-9]+.[0-9]+$ ]]
-+ query='curl -s https://proxy.golang.org/github.com/openshift-kni/k8sreporter/@v/v0.1.0.info|jq -r '''.Origin.URL''''
-+ pkg_version=v0.1.0
-++ eval 'curl -s https://proxy.golang.org/github.com/openshift-kni/k8sreporter/@v/v0.1.0.info|jq -r '''.Origin.URL''''
-+++ curl -s https://proxy.golang.org/github.com/openshift-kni/k8sreporter/@v/v0.1.0.info
-+++ jq -r .Origin.URL
-+ pkg_github_url=null
-+ [[ null = 
-ull ]]
-+ [[ github.com/openshift-kni/k8sreporter =~ ^(https?://|git@)?(www.)?github.com[:/][^/]+/[^/]+ ]]
-+ [[ ! github.com/openshift-kni/k8sreporter =~ ^https?:// ]]
-+ pkg_github_url=https://github.com/openshift-kni/k8sreporter
-+ [[ -z https://github.com/openshift-kni/k8sreporter ]]
-+ [[ https://github.com/openshift-kni/k8sreporter = 
-ull ]]
-++ echo https://github.com/openshift-kni/k8sreporter
-++ sed 's|/v[0-9]+/*$||'
-+ pkg_github_url=https://github.com/openshift-kni/k8sreporter
-+ trimmed_dir=
-+ [[ https://github.com/openshift-kni/k8sreporter != h		ps://gi	hu.com ]]
-+ wget --spider --timeout=3 -q https://github.com/openshift-kni/k8sreporter
-+ break
-+ [[ https://github.com/openshift-kni/k8sreporter = h		ps://gi	hu.com ]]
-+ git clone https://github.com/openshift-kni/k8sreporter
-++ basename https://github.com/openshift-kni/k8sreporter .git
-+ repo_dir=k8sreporter
-+ cd k8sreporter
-++ find . -type d -name '' -print -quit
-+ subcomponent=
-+ [[ -n '' ]]
-++ cut -d: -f2
-++ uniq
-++ sed 's/^[[:space:]#/*]+//'
-++ sort
-++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
-++ tr '
-' '
-'
-++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
-+ copyright_txt=
-+ [[ -z '' ]]
-++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
-++ sort
-++ uniq
-++ tr '
-' '
-'
-+ copyright_txt='Copyright 2022 Federico Paolinelli fpaoline@redhat.com
-Copyright 2022 GitHub noreply@github.com
-'
-+ cd ..
-+ rm -rf ./k8sreporter
-+ echo Copyright 2022 Federico Paolinelli 'fpaoline@redhat.com
-Copyright' 2022 GitHub 'noreply@github.com
-'
 Copyright 2022 Federico Paolinelli fpaoline@redhat.com
 Copyright 2022 GitHub noreply@github.com
 
@@ -1905,22 +1839,7 @@ gomodules.xyz/jsonpatch/v2
 SPDX:Apache-2.0
 
 == Copyright
-Copyright 2015 Matthew Baird mattbaird@gmail.com
-Copyright 2016 GitHub noreply@github.com
-Copyright 2016 Tom Michaud tom.michaud@gmail.com
-Copyright 2017 Clark Archer carcher@drillinginfo.com
-Copyright 2017 Darius Staisiunas darius@uber.com
-Copyright 2017 GitHub noreply@github.com
-Copyright 2017 Jaime Pillora dev@jpillora.com
-Copyright 2018 GitHub noreply@github.com
-Copyright 2018 tamal tamal@appscode.com
-Copyright 2019 GitHub noreply@github.com
-Copyright 2019 Tamal Saha tamal@appscode.com
-Copyright 2020 GitHub noreply@github.com
-Copyright 2021 GitHub noreply@github.com
-Copyright 2021 Tamal Saha tamal@appscode.com
-Copyright 2023 GitHub noreply@github.com
-Copyright 2023 John Howard howardjohn@google.com
+(no copyright notices found)
 
 --------------------------------- (separator) ----------------------------------
 
