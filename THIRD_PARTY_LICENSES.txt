@@ -1823,11 +1823,11 @@ SPDX:Apache-2.0
 
 == Copyright
 + GO_PKG=go.opentelemetry.io/otel/trace:v1.10.0
+++ echo go.opentelemetry.io/otel/trace:v1.10.0
 ++ cut -d: -f1
-++ echo go.opentelemetry.io/otel/trace:v1.10.0
 + pkg=go.opentelemetry.io/otel/trace
-++ cut -d: -f2
 ++ echo go.opentelemetry.io/otel/trace:v1.10.0
+++ cut -d: -f2
 + pkg_version=v1.10.0
 + [[ -z go.opentelemetry.io/otel/trace ]]
 + [[ -z v1.10.0 ]]
@@ -1861,14 +1861,14 @@ ull ]]
 ++ find . -type d -name '' -print -quit
 + subcomponent=
 + [[ -n '' ]]
-++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
-++ sort
-++ uniq
-++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
-++ sed 's/^[[:space:]#/*]+//'
 ++ tr '
 ' '
 '
+++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
+++ uniq
+++ sed 's/^[[:space:]#/*]+//'
+++ sort
+++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
 ++ cut -d: -f2
 + copyright_txt='Copyright (C) 2006 - 2019, The Apache Software Foundation
 Copyright (c) 2006- Facebook
