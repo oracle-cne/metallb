@@ -53,7 +53,7 @@ export CGO_ENABLED="0"
 for bin in %{binaries}
 do
     mkdir -p src/github.com/metallb/%{name}/build/%{arch}/${bin}
-    go build -v -o build/%{arch}/${bin}/${bin} -ldflags %{ldflags} go.universe.tf/metallb/${bin}
+    go build -v -o build/%{arch}/${bin}/${bin} -ldflags %{ldflags} -trimpath=false go.universe.tf/metallb/${bin}
 done
 
 %install
