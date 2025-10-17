@@ -48,7 +48,11 @@ export CGO_ENABLED="0"
 %global branch $(git rev-parse --abbrev-ref HEAD)
 %global ldflags "-X main.version=%{app_version} -X 'go.universe.tf/metallb/internal/version.gitCommit=%{commit}' -X 'go.universe.tf/metallb/internal/version.gitBranch=%{branch}'"
 
-%global binaries "controller" "speaker"
+{{{- if semverCompare "<0.13.6" $version }}}
+%global binaries "controller" "mirror-server" "speaker" "configmaptocrs"
+{{{- else }}}
+%global binaries "controller" "speaker" "configmaptocrs"
+{{{- end }}}
 
 for bin in %{binaries}
 do
@@ -72,4 +76,4 @@ rm -rf src
 
 %changelog
 * {{{.changelog_timestamp}}} - %{version}-1
-- Added Oracle specific files for {{{ $version }}}-1
+- Added configmaptocrs to binaries list
