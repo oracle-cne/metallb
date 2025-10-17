@@ -46,7 +46,7 @@ export GO111MODULE="on"
 export CGO_ENABLED="0"
 %global commit $(git describe --dirty --always)
 %global branch $(git rev-parse --abbrev-ref HEAD)
-%global ldflags "-X 'go.universe.tf/metallb/internal/version.gitCommit=%{commit}' -X 'go.universe.tf/metallb/internal/version.gitBranch=%{branch}'"
+%global ldflags "-X main.version=%{app_version} -X 'go.universe.tf/metallb/internal/version.gitCommit=%{commit}' -X 'go.universe.tf/metallb/internal/version.gitBranch=%{branch}'"
 
 %global binaries "controller" "speaker"
 
