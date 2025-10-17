@@ -502,22 +502,22 @@ ull ]]
 + subcomponent=
 + [[ -n '' ]]
 ++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
+++ sed 's/^[[:space:]#/*]+//'
 ++ cut -d: -f2
+++ sort
+++ uniq
+++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
 ++ tr '
 ' '
 '
-++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
-++ sed 's/^[[:space:]#/*]+//'
-++ uniq
-++ sort
 + copyright_txt=
 + [[ -z '' ]]
-++ uniq
+++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
 ++ sort
+++ uniq
 ++ tr '
 ' '
 '
-++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
 + copyright_txt='Copyright 2013 Armon Dadgar armon.dadgar@gmail.com
 Copyright 2013 Ben Agricola bagricola@squiz.co.uk
 Copyright 2013 Felix Geisendörfer felix@debuggable.com
@@ -825,11 +825,11 @@ SPDX:Apache-2.0
 
 == Copyright
 + GO_PKG=github.com/metallb/metallb-operator:v0.0.0-20211223114020-a8fc2e0875fc
-++ echo github.com/metallb/metallb-operator:v0.0.0-20211223114020-a8fc2e0875fc
 ++ cut -d: -f1
-+ pkg=github.com/metallb/metallb-operator
-++ cut -d: -f2
 ++ echo github.com/metallb/metallb-operator:v0.0.0-20211223114020-a8fc2e0875fc
++ pkg=github.com/metallb/metallb-operator
+++ echo github.com/metallb/metallb-operator:v0.0.0-20211223114020-a8fc2e0875fc
+++ cut -d: -f2
 + pkg_version=v0.0.0-20211223114020-a8fc2e0875fc
 + [[ -z github.com/metallb/metallb-operator ]]
 + [[ -z v0.0.0-20211223114020-a8fc2e0875fc ]]
@@ -851,8 +851,8 @@ ull ]]
 + [[ -z https://github.com/metallb/metallb-operator ]]
 + [[ https://github.com/metallb/metallb-operator = 
 ull ]]
-++ echo https://github.com/metallb/metallb-operator
 ++ sed 's|/v[0-9]+/*$||'
+++ echo https://github.com/metallb/metallb-operator
 + pkg_github_url=https://github.com/metallb/metallb-operator
 + trimmed_dir=
 + [[ https://github.com/metallb/metallb-operator != h		ps://gi	hu.com ]]
@@ -866,15 +866,15 @@ ull ]]
 ++ find . -type d -name '' -print -quit
 + subcomponent=
 + [[ -n '' ]]
-++ cut -d: -f2
 ++ grep -rIE '^(s**|//|#)?s*Copyright( ©)?( [0-9]{4})? .+' --exclude-dir=vendor --exclude-dir=.git .
-++ uniq
-++ sort
-++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
 ++ sed 's/^[[:space:]#/*]+//'
+++ cut -d: -f2
 ++ tr '
 ' '
 '
+++ uniq
+++ grep -vIE '^s*(*|//|#)?s*Copyrights*(()?(c|C|©)?())?s+([[|{|<]?(yyyy|[0-9]{4}|year)?[]|}|>]?)?s+([[|{|<]?(name of copyright owner|name of author)[]|}|>]?)?s*$'
+++ sort
 + copyright_txt=
 + [[ -z '' ]]
 ++ git log '--pretty=format:Copyright %cd %cn %cE' --date=format-local:%Y
