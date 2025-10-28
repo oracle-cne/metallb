@@ -46,7 +46,7 @@ export GO111MODULE="on"
 export CGO_ENABLED="0"
 %global commit $(git describe --dirty --always)
 %global branch $(git rev-parse --abbrev-ref HEAD)
-%global ldflags "-X 'go.universe.tf/metallb/internal/version.gitCommit=%{commit}' -X 'go.universe.tf/metallb/internal/version.gitBranch=%{branch}'"
+%global ldflags "-X main.version=%{app_version} -X 'go.universe.tf/metallb/internal/version.gitCommit=%{commit}' -X 'go.universe.tf/metallb/internal/version.gitBranch=%{branch}'"
 
 {{{- if semverCompare "<0.13.6" $version }}}
 %global binaries "controller" "mirror-server" "speaker" "configmaptocrs"
@@ -57,7 +57,7 @@ export CGO_ENABLED="0"
 for bin in %{binaries}
 do
     mkdir -p src/github.com/metallb/%{name}/build/%{arch}/${bin}
-    go build -v -o build/%{arch}/${bin}/${bin} -ldflags %{ldflags} go.universe.tf/metallb/${bin}
+    go build -v -o build/%{arch}/${bin}/${bin} -ldflags %{ldflags} -trimpath=false go.universe.tf/metallb/${bin}
 done
 
 %install
