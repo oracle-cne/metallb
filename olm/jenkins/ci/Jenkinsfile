@@ -1,6 +1,4 @@
-
-
-@Library('olcne-pipeline') _
+@Library('olcne-pipeline@superslim') _
 import com.oracle.olcne.pipeline.BranchPattern
 
 String metallb_version = "0.15.2"
