@@ -26,7 +26,6 @@ URL:                https://github.com/metallb/metallb/
 Source:             %{name}-%{version}.tar.bz2
 Vendor:             Oracle America
 Group:              System/Management
-BuildRequires:      golang >= %{golang_version}
 
 %description
 MetalLB is a load-balancer implementation for bare metal Kubernetes clusters, using standard routing protocols.
