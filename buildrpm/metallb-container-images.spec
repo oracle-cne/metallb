@@ -9,7 +9,7 @@
 %{!?registry: %global registry container-registry.oracle.com/olcne}
 %global app_name metallb
 %global app_version 0.15.2
-%global oracle_release_version 1
+%global oracle_release_version 2
 %ifarch %{arm} arm64 aarch64
 %global arch aarch64
 %else
@@ -44,7 +44,7 @@ yumdownloader --destdir=${PWD}/rpms %{rpm_name}
 
 for bin in %{binaries}
 do
-    %define docker_tag %{registry}/${bin}:v%{version}
+    %define docker_tag %{registry}/${bin}:v%{version}-1
     docker build --pull --build-arg https_proxy=${https_proxy} \
         -t %{docker_tag} -f ./olm/builds/%{dockerfile}.${bin} .
     docker build --pull \
@@ -68,5 +68,8 @@ done
 
 
 %changelog
+* Mon Dec 01 2025 Daniel Krasinski <daniel.krasinski@oracle.com> - 0.15.2-2
+- Respin with latest Oracle Linux base image
+
 * Thu Oct 16 2025 Oracle Cloud Native Environment Authors <noreply@oracle.com> - %{version}-1
 - Added configmaptocrs to binaries list

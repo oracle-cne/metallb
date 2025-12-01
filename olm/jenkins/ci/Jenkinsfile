@@ -1,8 +1,8 @@
-@Library('olcne-pipeline@superslim') _
+@Library('olcne-pipeline') _
 import com.oracle.olcne.pipeline.BranchPattern
 
 String metallb_version = "0.15.2"
-String image_tag = 'v' + metallb_version
+String image_tag = 'v' + metallb_version + "-1"
 
 olcnePipeline(
   branchPattern: new BranchPattern(master: 'oracle/release/' + metallb_version, feature: '(?!^release/.*$)(^.*$)'),

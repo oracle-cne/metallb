@@ -8,7 +8,7 @@
 
 %global app_name metallb
 %global app_version 0.15.2
-%global oracle_release_version 1
+%global oracle_release_version 2
 %global golang_version 1.20.10
 %ifarch %{arm} arm64 aarch64
 %global arch aarch64
@@ -69,5 +69,8 @@ done
 rm -rf src
 
 %changelog
+* Mon Dec 01 2025 Daniel Krasinski <daniel.krasinski@oracle.com> - 0.15.2-2
+- Respin with latest Oracle Linux base image
+
 * Thu Oct 16 2025 Oracle Cloud Native Environment Authors <noreply@oracle.com> - %{version}-1
 - Added configmaptocrs to binaries list
