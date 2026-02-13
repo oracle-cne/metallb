@@ -1,6 +1,6 @@
 
 
-@Library('olcne-pipeline@fix/rpmspec-error') _
+@Library('olcne-pipeline') _
 import com.oracle.olcne.pipeline.BranchPattern
 
 String metallb_version = "0.15.3"
