@@ -9,7 +9,7 @@
 %global app_name metallb
 %global app_version 0.15.3
 %global oracle_release_version 1
-%global golang_version %(echo $(grep "^go" go.mod | cut -d" " -f2) | awk '{$1=$1;print}')
+%global golang_version 1.20.10
 %ifarch %{arm} arm64 aarch64
 %global arch aarch64
 %else
